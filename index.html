@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Automated Neuronal Differentiation Analyzer</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="container bg-slate-200 justify-between mx-auto">
+    <h1 class="text-2xl">Automated Neuronal Differentiation Analyzer</h1>
+    <form action="" class="space-y-2">
+        <input type="file" value="Select image directory">
+        <div class="container flex flex-col">
+            <label for="aspect_ratio" class="text-sm font-bold">Neurite aspect ratio</label>
+            <input type="number" class="border-2 rounded border-gray-600 p-2 mr-auto hover:border-2 hover:border-blue-200" value=0>
+        </div>
+        <div class="container flex flex-col">
+            <label for="aspect_ratio" class="text-sm font-bold">Image height (px)</label>
+            <input type="number" class="border-2 rounded border-gray-600 p-2 mr-auto hover:border-2 hover:border-blue-200" value=100>
+        </div>
+        <div class="container flex flex-col">
+            <label for="aspect_ratio" class="text-sm font-bold">Image width (px)</label>
+            <input type="number" class="border-2 rounded border-gray-600 p-2 mr-auto hover:border-2 hover:border-blue-200" value=100>
+        </div>
+        <div class="space-y-2">
+            <div class="grid grid-cols-2 mr-auto">
+                <label for="aspect_ratio" class="text-sm font-bold">Neurite lengths</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid grid-cols-2">
+                <label for="aspect_ratio" class="text-sm font-bold">Cell body count</label>
+                <input type="checkbox" class="bg-blue-200">
+            </div>
+            <div class="grid grid-cols-2">
+                <label for="aspect_ratio" class="text-sm font-bold">Neurite attachment points</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid grid-cols-2">
+                <label for="aspect_ratio" class="text-sm font-bold">Apply watershed segmentation</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid grid-cols-2">
+                <label for="aspect_ratio" class="text-sm font-bold">Save motif outlines</label>
+                <input type="checkbox">
+            </div>
+            <input type="submit" class="bg-blue-600 border rounded-lg text-gray-200 font-bold p-1.5 px-2 hover:text-gray-400 hover:border-2 active:border-t-4 active:border-b-0" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
