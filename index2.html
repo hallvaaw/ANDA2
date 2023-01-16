@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Automated Neuronal Differentiation Analyzer</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Automated Neuronal Differentiation Analyzer</h1>
+    <form action="">
+        <input type="file" value="Select image directory">
+        <div class="grid ar">
+            <label for="aspect_ratio">Neurite aspect ratio</label>
+            <input class="numberinput" type="number" value=0>
+        </div>
+        <div class="grid">
+            <label for="aspect_ratio">Image height (px)</label>
+            <input class="numberinput" type="number" value=100>
+        </div>
+        <div class="grid">
+            <label for="aspect_ratio">Image width (px)</label>
+            <input class="numberinput" type="number" value=100>
+        </div>
+        <div class="checkboxes">
+            <div class="grid">
+                <label for="aspect_ratio">Neurite lengths</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid">
+                <label for="aspect_ratio">Cell body count</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid">
+                <label for="aspect_ratio">Neurite attachment points</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid">
+                <label for="aspect_ratio">Apply watershed segmentation</label>
+                <input type="checkbox">
+            </div>
+            <div class="grid">
+                <label for="aspect_ratio">Save motif outlines</label>
+                <input type="checkbox">
+            </div>
+            <input id="btn" type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
