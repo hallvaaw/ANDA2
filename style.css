@@ -16,9 +16,19 @@ form {
 }
 
 .grid {
-    width: 60%;
+    width: 40%;
     display: grid;
     column-count: 1;
+}
+
+.checkline {
+    width: 25%;
+    margin-top: 6px;
+}
+
+.checkbox {
+    float: right;
+    width: 20%;
 }
 
 label {
@@ -45,25 +55,36 @@ label {
     margin-top: 8px;
 }
 
-#btn {
+.btn {
+    font-size: 18px;
     background-color: #2563eb;
-    border-width: 1px;
+    border-width: 2px;
     border-radius: 8px;
     color: rgb(229 231 235);
     font-weight: 700;
-    padding: 8px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-right: 32px;
+    margin-top: 20px;
 }
 
-#btn:hover {
-    color: rgb(156 163 175);
-    border-width: 2px;
+#submit:hover {
+    background-color: #3b82f6;
+    color: rgb(249 250 251);
 }
 
-#btn:active {
-    border-top-width: 4px;
-    border-bottom-width: 0px;
+.btn:active {
+    border-color: rgb(229 231 235);
+}
+
+#cancel {
+    background-color: rgb(243 244 246);
+    color: rgb(75 85 99);
+}
+
+#cancel:hover {
+    color: rgb(209 213 219);
 }
 
 .ar {
