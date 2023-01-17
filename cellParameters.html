@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Automated Neuronal Differentiation Analyzer</title>
+        <link rel="stylesheet" href="cellParametersStyle.css">
+</head>
+<body>
+    <h2>Create cell parameters input file</h2>
+    <form action="">
+        <div class="grid ar">
+            <label for="aspect_ratio">Cell line</label>
+            <input class="numberinput" type="text" value=>
+        </div>
+        <section>
+            <div id="cells">
+                <div class="grid ar">
+                    <label for="aspect_ratio">Minimum cell size (px)</label>
+                    <input class="numberinput" type="number" value=0>
+                </div>
+                <div class="grid">
+                    <label for="aspect_ratio">Maximum cell size(px)</label>
+                    <input class="numberinput" type="number" value=0>
+                </div>
+                <div class="grid">
+                    <label for="aspect_ratio">Minimum cell circularity</label>
+                    <input class="numberinput" type="number" value=0.00>
+                </div>
+                <div class="grid">
+                    <label for="aspect_ratio">Maximum cell circularity</label>
+                    <input class="numberinput" type="number" value=1.00>
+                </div>
+            </div>
+            <div id="neurites">
+                <div class="grid ar">
+                    <label for="aspect_ratio">Minimum neurite size (px)</label>
+                    <input class="numberinput" type="number" value=0>
+                </div>
+                <div class="grid">
+                    <label for="aspect_ratio">Maximum neurite size(px)</label>
+                    <input class="numberinput" type="number" value=0>
+                </div>
+                <div class="grid">
+                    <label for="aspect_ratio">Minimum neurite circularity</label>
+                    <input class="numberinput" type="number" value=0.00>
+                </div>
+                <div class="grid">
+                    <label for="aspect_ratio">Maximum neurite circularity</label>
+                    <input class="numberinput" type="number" value=1.00>
+                </div>
+            </div>
+        </section>
+        <input id="btn" type="submit" value="Submit">
+    </form>
+</body>
+</html>
