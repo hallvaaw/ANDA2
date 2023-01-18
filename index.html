@@ -6,47 +6,13 @@
         <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Automated Neuronal Differentiation Analyzer</h1>
-    <form action="">
-        <input type="file" value="Select image directory">
-        <div class="grid ar">
-            <label for="aspect_ratio">Neurite aspect ratio</label>
-            <input class="numberinput" type="number" value=0>
-        </div>
-        <div class="grid">
-            <label for="aspect_ratio">Image height (px)</label>
-            <input class="numberinput" type="number" value=100>
-        </div>
-        <div class="grid">
-            <label for="aspect_ratio">Image width (px)</label>
-            <input class="numberinput" type="number" value=100>
-        </div>
-        <div class="checkboxes">
-            <div class="checkline">
-                <label class="checklabel" for="aspect_ratio">Neurite lengths</label>
-                <input class="checkbox" type="checkbox">
-            </div>
-            <div class="checkline">
-                <label class="checklabel" for="aspect_ratio">Cell body count</label>
-                <input class="checkbox" type="checkbox">
-            </div>
-            <div class="checkline">
-                <label class="checklabel" for="aspect_ratio">Neurite attachment points</label>
-                <input class="checkbox" type="checkbox">
-            </div>
-            <div class="checkline">
-                <label class="checklabel" for="aspect_ratio">Apply watershed segmentation</label>
-                <input class="checkbox" type="checkbox">
-            </div>
-            <div class="checkline">
-                <label class="checklabel" for="aspect_ratio">Save motif outlines</label>
-                <input class="checkbox" type="checkbox">
-            </div>
-            <div>
-                <input id="cancel" class="btn" type="submit" value="Cancel">
-                <input id="submit" class="btn" type="submit" value="Submit">
-            </div>
-        </div>
-    </form>
+    <main>
+        <img src="anda_logo.png" alt="ANDA logo">
+        <a id="image-analysis" class="btn" href="imageAnalysis.html">Analyze images</a>
+        <a id="cell-parameters" class="btn" href="cellParameters.html">Set parameters</a>
+    </main>
+    <footer>
+        <p>Version X.X</p>
+    </footer>
 </body>
 </html>

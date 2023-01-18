@@ -1,5 +1,5 @@
 body {
-    width: 80%;
+    width: 60%;
     background-color: #e2e8f0;
     margin-left: auto;
     margin-right: auto;
@@ -16,9 +16,19 @@ form {
 }
 
 .grid {
-    width: 80%;
+    width: 40%;
     display: grid;
     column-count: 1;
+}
+
+.checkline {
+    width: 25%;
+    margin-top: 6px;
+}
+
+.checkbox {
+    float: right;
+    width: 20%;
 }
 
 label {
@@ -41,18 +51,8 @@ label {
     border-color: rgb(191 219 254);
 }
 
-section {
-    display: table;
-}
-
-#cells {
-    float:left;
-    width: 50%;
-}
-
-#neurites {
-    float: right;
-    width: 40%;
+.checkboxes {
+    margin-top: 8px;
 }
 
 .btn {
