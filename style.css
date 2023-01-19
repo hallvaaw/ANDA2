@@ -1,13 +1,5 @@
-/*
 body {
-    width: 60%;
-    background-color: #e2e8f0;
-    margin-left: auto;
-    margin-right: auto;
-}
-*/
-body {
-    width: 60%;
+    width: 30%;
     background-color: #e2e8f0;
     margin-left: auto;
     margin-right: auto;
@@ -15,27 +7,11 @@ body {
     column-count: 1;
 }
 
-h1 {
-    font-family: monospace;
-    font-size: 22px;
-    line-height: 28px;
-}
-/*
 main {
     width: 20%;
     display: grid;
     column-count: 1;
-    float: left;
-    margin-left: 160px;
-}
-*/
-
-main {
-    width: 20%;
-    display: grid;
-    column-count: 1;
-    vertical-align: top
-    margin-left: 160px;
+    vertical-align: top;
 }
 
 img {
@@ -77,4 +53,3 @@ p {
     margin-left: 100px;
     margin-top: 150px;
 }
-

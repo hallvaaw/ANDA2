@@ -1,8 +1,7 @@
 body {
-    width: 60%;
+    width: 65%;
     background-color: #e2e8f0;
     margin-left: auto;
-    margin-right: auto;
 }
 
 h1 {
@@ -22,13 +21,13 @@ form {
 }
 
 .checkline {
-    width: 25%;
+    width: 80%;
     margin-top: 6px;
 }
 
 .checkbox {
-    float: right;
-    width: 20%;
+    float: left;
+    margin-right: 8px;
 }
 
 label {
@@ -38,7 +37,7 @@ label {
     font-weight: 700;
 }
 
-.numberinput {
+.number-input {
     border-width: 2px;
     border-radius: 4px;
     border-color: rgb(75 88 99);
@@ -47,7 +46,7 @@ label {
     margin-bottom: 8px;
 }
 
-.numberinput:hover {
+.number-input:hover {
     border-color: rgb(191 219 254);
 }
 

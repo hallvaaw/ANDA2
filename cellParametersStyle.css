@@ -1,5 +1,5 @@
 body {
-    width: 80%;
+    width: 50%;
     background-color: #e2e8f0;
     margin-left: auto;
     margin-right: auto;
@@ -7,12 +7,8 @@ body {
 
 h1 {
     font-size: 20px;
+    font-family: sans-serif;
     line-height: 28px;
-}
-
-form {
-    margin-top: 8px;
-    margin-bottom: 8px;
 }
 
 .grid {
@@ -93,6 +89,6 @@ section {
     margin-top: 40px;
 }
 
-.ar {
-    margin-top: 12px;
+.cell-line {
+    margin-bottom: 12px;
 }
