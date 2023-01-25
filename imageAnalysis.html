@@ -11,7 +11,7 @@
         <input type="file" value="Select image directory">
         <div class="grid ar">
             <label for="aspect-ratio">Neurite aspect ratio</label>
-            <input class="number-input" name="aspect-ratio" type="number" value=0>
+            <input id="aspect_ratio" class="number-input" name="aspect-ratio" type="number" onfocus="clearInput(this)" onfocusout="refillInput(this)" value=0>
         </div>
         <div class="checkboxes">
             <div class="checkline">
@@ -44,6 +44,17 @@
     </form>
 </body>
 <script>
+function clearInput(e) {
+    if (e.value == "0") {
+        e.value = "";
+    }
+}
+
+function refillInput(e) {
+    if (e.value == "") {
+        e.value = "0";
+    }
+}
 function handleSubmit(e) {
     e.preventDefault();
     const data = new FormData(e.target);
