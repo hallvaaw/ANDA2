@@ -2,6 +2,7 @@
 
 from ij import IJ, ImagePlus
 from ij.plugin import ImageCalculator
+from java.util.concurrent import Executors
 
 # Open file with parameters for image analysis
 with open("anda_parameters.txt", 'r') as anda_parameters:
@@ -48,7 +49,7 @@ image_calc = ImageCalculator() # ImageJ plugin
 
 
 
-def particle_analysis_cell(analysis, file_):
+def cell_analysis(file_):
     """Quantify cell body count"""
 
     IJ.open(file_)
@@ -62,7 +63,7 @@ def particle_analysis_cell(analysis, file_):
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
     IJ.saveAs("Results", "{}".format(str(outputfiles)))
     # IJ.run("Clear Results")
-    if OUTLINES == "show_OUTLINES":
+    if OUTLINES == "show_outlines":
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
         overlay_ = ImagePlus.getOverlay(imp)
         image_width = imp.getWidth()
@@ -75,7 +76,7 @@ def particle_analysis_cell(analysis, file_):
         IJ.saveAs(imp3, "Tiff", "{}".format(str(outlinefiles)))
 
 
-def particle_analysis_neurite(analysis, file_):
+def neurite_analysis(file_):
     """Quantify neurite lengths"""
 
     IJ.open(file_)
@@ -90,7 +91,7 @@ def particle_analysis_neurite(analysis, file_):
     IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_neurite_size, max_neurite_size, min_neurite_circularity, max_neurite_circularity))
     IJ.saveAs("Results", "{}".format(str(outputfiles)))
     # IJ.run("Clear Results")
-    if OUTLINES == "show_OUTLINES":
+    if OUTLINES == "show_outlines":
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
         overlay_ = ImagePlus.getOverlay(imp)
         image_width = imp.getWidth()
@@ -103,7 +104,7 @@ def particle_analysis_neurite(analysis, file_):
         IJ.saveAs(imp3, "Tiff", "{}".format(str(outlinefiles)))
 
 
-def particle_analysis_attachment(analysis, file_):
+def attachment_analysis(file_):
     """Quantify neurite attachment points"""
 
     IJ.open(file_)
@@ -159,7 +160,7 @@ def particle_analysis_attachment(analysis, file_):
     IJ.run(imp_res, "Analyze Particles...", "size=0-100 pixel circularity=0.00-1.00 show=Nothing display summarize")
     IJ.saveAs("Results", "{}".format(str(outputfiles)))
     IJ.run("Clear Results")
-    if OUTLINES == "show_OUTLINES":
+    if OUTLINES == "show_outlines":
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
         overlay_ = ImagePlus.getOverlay(imp_res)
         image_width = imp.getWidth()
@@ -171,10 +172,15 @@ def particle_analysis_attachment(analysis, file_):
         IJ.run(imp3, "8-bit", "")
         IJ.saveAs(imp3, "Tiff", "{}".format(str(outlinefiles)))
 
+# Fixed thread pool with 3 threads
+executor = Executors.newFixedThreadsPool(3)
 
 
+# Perform image analysis of 3 metrics at a time
 for file_name in input_files:
-    particle_analysis_cell(INPUT_ANALYSIS, file_name)
+    executor.submit(cell_analysis, file_name)
+    executor.submit(neurite_analysis, file_name)
+    executor.submit(attachment_analysis, file_name)
 
 def file_read():
     """If ouputfile is not written, write an empty outputfile"""
