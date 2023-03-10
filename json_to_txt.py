@@ -2,14 +2,14 @@
 
 """Convert json to txt """
 
-import os
+import sys
 import json
 
-PATH = os.getcwd()
+FILE = sys.argv[1]
 
-with open(f"{PATH}analysis_parameters.json", "r") as analysis_parameters:
+with open(f"{FILE}.json", "r") as analysis_parameters:
     data = json.load(analysis_parameters)
 
-with open(f"{PATH}analysis_parameters.txt", "w") as analysis_parameters:
+with open(f"{FILE}.txt", "w") as analysis_parameters:
     for line in data.values():
         analysis_parameters.write(str(line) + '\n')
