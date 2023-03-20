@@ -10,7 +10,7 @@ with open("anda_parameters.txt", 'r') as anda_parameters:
 
 CELL_LINE = str(anda_parameters[1])
 # INPUT_ANALYSIS = str(anda_parameters[0]) # List
-IMAGE_DIR = str(anda_parameters[1])
+PATH = str(anda_parameters[1])
 OUTLINES = str(anda_parameters[2])
 
 
@@ -23,20 +23,19 @@ with open("{}_parameters.txt".format(CELL_LINE), 'r') as cell_type:
     cell_read = cell_type.readlines()
 
 cell_line_parameters = [str(i.rstrip()) for i in cell_read] # Cell parameters list
-PATH = str(cell_line_parameters[0])
 
 ##### Cell metric parameters
-min_cell_size = int(cell_line_parameters[1])
-max_cell_size = int(cell_line_parameters[2])
-min_cell_circularity = float(cell_line_parameters[3])
-max_cell_circularity = float(cell_line_parameters[4])
-min_neurite_size = int(cell_line_parameters[5])
-max_neurite_size = int(cell_line_parameters[6])
-min_neurite_circularity = float(cell_line_parameters[7])
-max_neurite_circularity = float(cell_line_parameters[8])
-CELL_THRESHOLD = str(cell_line_parameters[9])
-NEURITE_THRESHOLD = str(cell_line_parameters[10])
-WATERSHED_CHOICE = str(cell_line_parameters[11])
+min_cell_size = int(cell_line_parameters[0])
+max_cell_size = int(cell_line_parameters[1])
+min_cell_circularity = float(cell_line_parameters[2])
+max_cell_circularity = float(cell_line_parameters[3])
+min_neurite_size = int(cell_line_parameters[4])
+max_neurite_size = int(cell_line_parameters[5])
+min_neurite_circularity = float(cell_line_parameters[6])
+max_neurite_circularity = float(cell_line_parameters[7])
+CELL_THRESHOLD = str(cell_line_parameters[8])
+NEURITE_THRESHOLD = str(cell_line_parameters[9])
+WATERSHED_CHOICE = str(cell_line_parameters[10])
 
 
 if CELL_THRESHOLD == "none":
