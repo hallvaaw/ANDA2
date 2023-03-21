@@ -8,11 +8,10 @@ from java.util.concurrent import Executors
 with open("anda_parameters.txt", 'r') as anda_parameters:
     analysis_read = anda_parameters.readlines()
 
-CELL_LINE = str(anda_parameters[1])
-# INPUT_ANALYSIS = str(anda_parameters[0]) # List
+CELL_LINE = str(anda_parameters[0]) # Name of cell line
 PATH = str(anda_parameters[1])
-OUTLINES = str(anda_parameters[2])
-
+OUTLINES = str(anda_parameters[2]) # Whether or not to save motif outlines
+WATERSHED_CHOICE = str(anda_parameters[3])
 
 # Open file with image file names
 with open("file_names.txt", 'r') as file_names:
@@ -35,9 +34,8 @@ min_neurite_circularity = float(cell_line_parameters[6])
 max_neurite_circularity = float(cell_line_parameters[7])
 CELL_THRESHOLD = str(cell_line_parameters[8])
 NEURITE_THRESHOLD = str(cell_line_parameters[9])
-WATERSHED_CHOICE = str(cell_line_parameters[10])
 
-
+# Thresholding cells and neurites
 if CELL_THRESHOLD == "none":
     CELL_THRESHOLD = "Default" # Default thresholding method in ImageJ
 if NEURITE_THRESHOLD == "none":
@@ -60,7 +58,8 @@ def cell_analysis(file_):
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
     else:
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
-    IJ.saveAs("Results", "{}".format(str(outputfiles)))
+
+    IJ.saveAs("Results", "{}_results_cells/{}".format(PATH, file_)
     # IJ.run("Clear Results")
     if OUTLINES == "save_outlines":
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
@@ -72,7 +71,7 @@ def cell_analysis(file_):
         imp2 = IJ.getImage()
         imp3 = imp2.flatten()
         IJ.run(imp3, "8-bit", "")
-        IJ.saveAs(imp3, "Tiff", "{}".format(str(outlinefiles)))
+        IJ.saveAs(imp3, "Tiff", "{}_outlines_cells/{}".format(PATH, file_)
 
 
 def neurite_analysis(file_):
@@ -88,7 +87,7 @@ def neurite_analysis(file_):
     else:
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
     IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_neurite_size, max_neurite_size, min_neurite_circularity, max_neurite_circularity))
-    IJ.saveAs("Results", "{}".format(str(outputfiles)))
+    IJ.saveAs("Results", "{}_results_neurites/{}".format(PATH, file_)
     # IJ.run("Clear Results")
     if OUTLINES == "save_outlines":
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
@@ -100,7 +99,7 @@ def neurite_analysis(file_):
         imp2 = IJ.getImage()
         imp3 = imp2.flatten()
         IJ.run(imp3, "8-bit", "")
-        IJ.saveAs(imp3, "Tiff", "{}".format(str(outlinefiles)))
+        IJ.saveAs(imp3, "Tiff", "{}_outlines_neurites/{}".format(PATH, file_)
 
 
 def attachment_analysis(file_):
@@ -160,7 +159,7 @@ def attachment_analysis(file_):
     imp_res = image_calc.run("Multiply create", imp_n3, imp_c3)
     IJ.saveAs(imp_res, "Tiff", "{}/{}_imp_res.tif".format(PATH, file_))
     IJ.run(imp_res, "Analyze Particles...", "size=0-100 pixel circularity=0.00-1.00 show=Nothing display summarize")
-    IJ.saveAs("Results", "{}".format(str(outputfiles)))
+    IJ.saveAs("Results", "{}_results_attachment/{}".format(PATH, file_)
     IJ.run("Clear Results")
     if OUTLINES == "save_outlines":
         IJ.run("Analyze Particles...", "size={}-{} pixel circularity={}-{} show=Nothing display summarize".format(min_cell_size, max_cell_size, min_cell_circularity, max_cell_circularity))
@@ -172,7 +171,7 @@ def attachment_analysis(file_):
         imp2 = IJ.getImage()
         imp3 = imp2.flatten()
         IJ.run(imp3, "8-bit", "")
-        IJ.saveAs(imp3, "Tiff", "{}".format(str(outlinefiles)))
+        IJ.saveAs(imp3, "Tiff", "{}_outlines_attachment/{}".format(PATH, file_)
 
 # Fixed thread pool with 3 threads
 executor = Executors.newFixedThreadsPool(3)
